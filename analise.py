@@ -34,39 +34,33 @@ def analisar():
 
         else:
             break
+def pesquisa(dados, termo):
+    resultados = []
+    for item in dados:
+        if termo.lower() in item.lower():
+            resultados.append(item)
+    return resultados
 
-def procurar():
+def todos(pagina):
     livrosPegados = []
     livrosDeixados = []
-    pagina = int(input("Quantas páginas tem no excel?\n"))-1
-
-   
+    Todos = []
     i = 0
-    while i <= pagina:
+    while i <= pagina-1:
         dados = pd.read_excel("Livros.xlsx", sheet_name=i)
         h = dados.index[-1]
         a = 1
         while a <= h:
             celula = dados.iloc[a, 0]
+            Todos.append(str(dados.iloc[a,2]).lower())
             if celula in ['x', 'X']:
                 livrosPegados.append(str(dados.iloc[a, 2]).lower())
             else:
                 livrosDeixados.append(str(dados.iloc[a, 2]).lower())
             a+=1
         i += 1
-    Todos = [livrosDeixados, livrosPegados]
-    print(Todos)
-    livro = input("Qual livro você quer procurar?")
-    if livro in Todos and livro in livrosPegados: print(f"O livro {livro} foi levado")
-    elif livro in Todos and livro in livrosDeixados: print(f"O Livro {livro} foi deixado na escola")
-    else: print("Livro não encontrado")
+    return livrosDeixados, livrosPegados, Todos
 
-    print(f"Total de livro {len(livrosDeixados) + len(livrosPegados)}")
-    print("Livros Deixados: ",  len(livrosDeixados))
-    print("Livros Levados: ", len(livrosPegados))
     
 
 
-escolha = int(input("Você deseja:\nAnalisar planilha(1)\nProcurar livro(2)\nVer totais de livros(3)\n"))
-if escolha == 1: analisar()
-elif escolha == 2: procurar()
