@@ -55,7 +55,7 @@ def procurar():
             a+=1
         i += 1
     Todos = [livrosDeixados, livrosPegados]
-    print(total)
+    print(Todos)
     livro = input("Qual livro você quer procurar?")
     if livro in Todos and livro in livrosPegados: print(f"O livro {livro} foi levado")
     elif livro in Todos and livro in livrosDeixados: print(f"O Livro {livro} foi deixado na escola")
