@@ -1,10 +1,9 @@
 import pandas as pd
 
-def analisar():
+def analisar(pagina):
     while True:
         livrosPegados = []
         livrosDeixados = []
-        pagina = int(input("Qual página do arquivo você quer analisar?\n"))
         dados = pd.read_excel("Livros.xlsx", sheet_name=pagina-1)
         h = dados.index[-1]
         a = 1
@@ -17,23 +16,8 @@ def analisar():
                 livrosDeixados.append(dados.iloc[a, 2])
             a+=1
 
-        menu = int(input(f"Foram levados {len(livrosPegados)}\nForam deixados {len(livrosDeixados)}\nQuer saber quais livros foram deixados?(1)\nQuer saber quais livros foram levados?(2)\n"))
-        if menu == 1:
-            print(livrosDeixados)
-            escolha = int(input("Voltar ao menu(1), sair(2)"))
-            livrosPegados = []
-            livrosDeixados = []
-            if escolha == 2: break
+        return livrosDeixados, livrosPegados
 
-        elif menu == 2:
-            print(livrosPegados)
-            escolha = int(input("Voltar ao menu(1), sair(2)"))
-            livrosPegados = []
-            livrosDeixados = []
-            if escolha == 2: break
-
-        else:
-            break
 def pesquisa(dados, termo):
     resultados = []
     for item in dados:
