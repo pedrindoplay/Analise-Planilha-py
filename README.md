@@ -27,5 +27,6 @@ python analise.py
 ```
 
 ### Próximas etapas
-Eu ainda não estou 100% satisfeito com o desenvolvimento desse código, eu pretendo finalizar um sistema de buscas, porém estou enfrentando problemas com as nomeclaturas dos livros, já que do jeito em que sei fazer para encontrar o livro "Go Girl! Angel - Estrelas do Palco" por exemplo, a pessoa teria que pesquisar exatamente da forma que está escrito, logo mais irei atualizar isso para que se torne funcional
+Ajustar a pesquisa de itens, planejo colocar os livros em um dicionario em que a chave seja se ele foi ou não pegado, não sei se é uma boa ideia, mas ainda não pensei direito como vou fazer, ja que do jeito que está, o usuário teria que procurar manualmente se o livro pesquisado foi ou não levado.
+
 
