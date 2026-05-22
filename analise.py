@@ -44,7 +44,3 @@ def todos(pagina):
             a+=1
         i += 1
     return livrosDeixados, livrosPegados, Todos
-
-    
-
-
